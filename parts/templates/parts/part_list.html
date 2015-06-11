@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pl_PL">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Galeria czesci</title>
+
+	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+	</head>
+<body>
+
+{% block 'content' %}
+<h1 align='center'>Lista czesci</h1>
+
+
+<table border="1" align="center">
+	<th align="center">Part Name</th>
+	<th align="center">Part IdName</th>
+	<th align="center">Typ</th>
+	<th align="center">Picture</th>
+	{% for row in object_list %}
+	<tr align="center" width ="18%">
+		<td width ="18%" > <a href="{% url 'part-detailview' row.id %}">{{ row.name }}</a></td>			
+		<td width ="18%">{{ row.id }} {{ row.id_name }}</td>
+		<td width ="18%" > {{ row.get_parttype_display }}</td>
+		<td width ="18%"><img src={{ row.pic.url }} alt='buu' height="55"/></td>		
+	</tr>
+	 {% endfor %}
+</table>
+
+<div class="container">
+  <div class="row">
+	<div class="col-lg-1">Part Name</div>
+	<div class="col-lg-1">Part IdName</div>
+	<div class="col-lg-1">Typ</div>
+	<div class="col-lg-1">Rysunek</div>
+  </div>
+  {% for row in object_list %}
+  <div class="row">
+	<div class="col-lg-1"><a href="{% url 'part-detailview' row.id %}">{{ row.name }}</a></div>
+	<div class="col-lg-1">{{ row.id }} {{ row.id_name }}</div>
+	<div class="col-lg-1">{{ row.get_parttype_display }}</div>
+	<div class="col-lg-1"><img src={{ row.pic.url }} alt='buu' height="55"/></div>
+	</div>
+	{% endfor %}
+  
+  
+
+
+
+
+
+
+{% endblock %}
+
+</body>
+</html>

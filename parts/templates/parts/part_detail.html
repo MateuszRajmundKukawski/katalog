@@ -1,0 +1,9 @@
+<h1>Test</h1>
+{% block 'content' %}
+<h2>{{ object.name }}</h2>
+<h2>O numerze katalogowym: {{ object.id_name }}</h2>
+<img src={{ object.pic.url }} alt='buu' height="150"/>
+<br>
+
+<a align="left" href="{% url 'part-listview' %}">wroc</a>
+{% endblock %}
