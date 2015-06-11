@@ -10,7 +10,7 @@
 	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
 	</head>
 <body>
-
+<a  href="/admin/"><p align="right">  admin</p></a>
 {% block 'content' %}
 <h1 align='center'>Lista czesci</h1>
 
@@ -23,7 +23,7 @@
 	{% for row in object_list %}
 	<tr align="center" width ="18%">
 		<td width ="18%" > <a href="{% url 'part-detailview' row.id %}">{{ row.name }}</a></td>			
-		<td width ="18%">{{ row.id }} {{ row.id_name }}</td>
+		<td width ="18%">{{ row.id_name }}</td>
 		<td width ="18%" > {{ row.get_parttype_display }}</td>
 		<td width ="18%"><img src={{ row.pic.url }} alt='buu' height="55"/></td>		
 	</tr>
@@ -40,7 +40,7 @@
   {% for row in object_list %}
   <div class="row">
 	<div class="col-lg-1"><a href="{% url 'part-detailview' row.id %}">{{ row.name }}</a></div>
-	<div class="col-lg-1">{{ row.id }} {{ row.id_name }}</div>
+	<div class="col-lg-1">{{ row.id_name }}</div>
 	<div class="col-lg-1">{{ row.get_parttype_display }}</div>
 	<div class="col-lg-1"><img src={{ row.pic.url }} alt='buu' height="55"/></div>
 	</div>
